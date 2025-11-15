@@ -69,7 +69,7 @@ if ($count > 0) {
         $category = htmlspecialchars($rows['category']);
 
         if ($tab === 'deleted') {
-            // Deleted tab → Restore | Hard Delete | History
+            // Deleted tab:  Restore | Hard Delete | History
             $actions = '
               <div class="btn-group" role="group" aria-label="Deleted book actions">
                 <a href="restore-book.php?id=' . $book_id . '"
@@ -91,7 +91,7 @@ if ($count > 0) {
               </div>
             ';
         } else {
-            // Active tab → Update | Soft Delete | History
+            // Active tab: Update | Soft Delete | History
             $actions = '
               <div class="btn-group" role="group" aria-label="Active book actions">
                 <a href="update-book.php?id=' . $book_id . '"

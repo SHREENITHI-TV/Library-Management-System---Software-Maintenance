@@ -52,14 +52,13 @@ include('../../format/sidebar.php');
 include('../../format/footer.php');
 
 if (isset($_POST['submit'])) {
-    // basic sanitising
     $student_id = (int)($_POST['student_id'] ?? 0);
     $firstname  = trim($_POST['firstname']  ?? '');
     $lastname   = trim($_POST['lastname']   ?? '');
     $department = trim($_POST['department'] ?? '');
     $batch      = trim($_POST['batch']      ?? '');
 
-    // 1) Check for duplicate student_id
+    // Check for duplicate student_id
     $checkSql = "SELECT COUNT(*) AS cnt FROM student WHERE student_id = ?";
     $checkStmt = $conn->prepare($checkSql);
     $checkStmt->bind_param("i", $student_id);
@@ -72,7 +71,7 @@ if (isset($_POST['submit'])) {
         // student_id already exists
         echo "<script>alert('Student ID already exists. Please use a different ID.');</script>";
     } else {
-        // 2) Insert new student
+        // Insert new student
         $sql = "INSERT INTO student (student_id, firstname, lastname, department, batch)
                 VALUES (?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);

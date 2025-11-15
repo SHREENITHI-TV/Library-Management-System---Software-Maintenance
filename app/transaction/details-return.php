@@ -12,7 +12,7 @@ if (!isset($_GET['id'])) {
 
 $tran_id = (int)$_GET['id'];
 
-// 1) Load the transaction (must be returned)
+// Load the transaction 
 $sql = "SELECT * FROM transaction
         WHERE tran_id = $tran_id AND status = 'returned'";
 $res = mysqli_query($conn, $sql);
@@ -26,7 +26,7 @@ if ($res && mysqli_num_rows($res) === 1) {
     $date_returned = $rows['date_returned'];
     $date_due      = $rows['date_due'];
 
-    // 2) Load student info (now using department + batch)
+    // Load student info using department + batch
     $firstname  = '';
     $lastname   = '';
     $department = '';
@@ -45,7 +45,7 @@ if ($res && mysqli_num_rows($res) === 1) {
         }
     }
 
-    // 3) Load book info
+    // Load book info
     $title     = '';
     $author    = '';
     $publisher = '';

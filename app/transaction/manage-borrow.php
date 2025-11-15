@@ -86,7 +86,7 @@ if ($result && mysqli_num_rows($result) > 0) {
         $book_title    = $rows['book_title'];
         $student_name  = trim($rows['student_firstname'] . ' ' . $rows['student_lastname']);
 
-        // ---- OVERDUE LOGIC ----
+        // OVERDUE LOGIC 
         $overdue_label = '';
         if ($today > $date_due) {
             $overdue_label = '<span style="color:red; font-weight:bold;">Overdue</span>';

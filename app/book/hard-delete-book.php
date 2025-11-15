@@ -10,7 +10,6 @@ if (!isset($_GET['id'])) {
 
 $book_id = (int)$_GET['id'];
 
-// Optional: fetch title for nicer logging (in case FK constraints delete versions etc.)
 $title = null;
 $stmt = $conn->prepare("SELECT title FROM books WHERE book_id = ?");
 $stmt->bind_param("i", $book_id);
@@ -28,7 +27,7 @@ $stmtDel->bind_param("i", $book_id);
 $ok = $stmtDel->execute();
 $stmtDel->close();
 
-// Log action regardless; if delete failed, it will still be obvious something is wrong.
+
 $details = json_encode(
     [
         'hard'  => true,

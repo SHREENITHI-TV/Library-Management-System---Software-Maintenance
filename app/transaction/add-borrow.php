@@ -20,9 +20,10 @@ $category   = '';
 if (isset($_POST['Check'])) {
 
     if (isset($_POST['student_id'])) {
-        $student_id = $_POST['student_id'];
+        // cast to int just to be safe
+        $student_id = (int)$_POST['student_id'];
 
-        $sql = "SELECT * FROM student WHERE student_id = $student_id AND deleted_at IS NULL";
+        $sql = "SELECT * FROM student WHERE student_id = $student_id";
 
         $res = mysqli_query($conn, $sql);
 
@@ -33,7 +34,6 @@ if (isset($_POST['Check'])) {
                 $student_id = $row['student_id'];
                 $firstname  = $row['firstname'];
                 $lastname   = $row['lastname'];
-                // renamed columns
                 $department = $row['department'];
                 $batch      = $row['batch'];
             }
@@ -80,7 +80,7 @@ if (isset($_POST['Borrow'])) {
             window.location.href='borrow.php';
         </script>";
     } else {
-        echo "Failed " . mysqli_error($conn);
+        echo 'Failed ' . mysqli_error($conn);
     }
 }
 ?>
@@ -199,7 +199,6 @@ if (isset($_POST['Borrow'])) {
         </div>
     </div>
     <br>
-
 </div>
 
 </div>

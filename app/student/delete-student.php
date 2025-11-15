@@ -32,7 +32,6 @@ $stmt->bind_param("i", $student_id);
 $stmt->execute();
 
 if ($stmt->affected_rows > 0) {
-    // no Activity Log entry for student deletes anymore
     header('Location: students.php');
     exit;
 } else {

@@ -103,26 +103,25 @@ $res = $stmt->get_result();
         </div>
     </form>
 
-    <!-- Page-local styling just for this table -->
     <style>
         .activity-log-table thead th {
-            background: #eef0ff;          /* soft bluish header */
+            background: #eef0ff;          
             color: #343a40;
             border-bottom: 2px solid #d0d4ff;
         }
         .activity-log-table tbody tr:nth-child(odd) {
-            background-color: #f9fbff;    /* very light row stripe */
+            background-color: #f9fbff;   
         }
         .activity-log-table tbody tr:hover {
-            background-color: #e6f2ff;    /* hover highlight */
+            background-color: #e6f2ff;  
         }
         .activity-log-table td:nth-child(3) {
-            font-weight: 600;             /* Action column a bit bolder */
-            color: #0d6efd;               /* bootstrap primary blue */
+            font-weight: 600;           
+            color: #0d6efd;              
         }
         .activity-log-table td:nth-child(5) {
             color: #495057;
-            font-size: 0.9rem;            /* timestamp slightly softer */
+            font-size: 0.9rem;           
         }
     </style>
 
@@ -147,7 +146,7 @@ $res = $stmt->get_result();
                 $userId = '-';
             }
 
-            // Target / Action performed on/by
+            // Action performed on/by
             $target = '';
             if ($row['entity'] === 'book') {
                 $bookId    = $row['entity_id'];

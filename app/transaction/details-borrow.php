@@ -27,7 +27,7 @@ $category     = '';
 $date_borrowed = '';
 $date_due      = '';
 
-// Load transaction (only borrowed)
+// Load transaction only borrowed
 $sql = "SELECT * FROM transaction
         WHERE tran_id = $tran_id AND status = 'borrowed'";
 $res = mysqli_query($conn, $sql);
@@ -40,7 +40,6 @@ if ($res && mysqli_num_rows($res) === 1) {
     $date_borrowed = $rows['date_borrowed'];
     $date_due      = $rows['date_due'];
 
-    // Student info (no more deleted_at column)
     if (!empty($student_id)) {
         $studentsql = "SELECT * FROM student WHERE student_id = $student_id";
         $resStu = mysqli_query($conn, $studentsql);

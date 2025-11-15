@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
     $title     = $_POST['title'];
     $author    = $_POST['author'];
     $publisher = $_POST['publisher'];
-    $year      = $_POST['year'];      // VARCHAR(4) per schema change
+    $year      = $_POST['year'];     
     $category  = $_POST['category'];
 
 
@@ -65,7 +65,7 @@ if (isset($_POST['submit'])) {
     $next_no = $rowVer ? (int)$rowVer['next_no'] : 1;
     $stVer->close();
 
-    // Compute a diff (before vs after)
+    // Compute diff (before vs after)
     $diff = [];
     if ($before) {
         if ($before['title']     !== $title)     $diff['title']     = ['before'=>$before['title'],     'after'=>$title];

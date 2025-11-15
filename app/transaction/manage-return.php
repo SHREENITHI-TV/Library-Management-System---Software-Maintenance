@@ -89,7 +89,7 @@ if ($result && mysqli_num_rows($result) > 0) {
         $book_title    = $rows['book_title'];
         $student_name  = trim($rows['student_firstname'] . ' ' . $rows['student_lastname']);
 
-        // ---- LATE RETURN LOGIC ----
+        // LATE RETURN
         $late_label = '';
         if (!empty($date_returned) && $date_returned > $date_due) {
             $late_label = '<span style="color:red; font-weight:bold;">Returned Late</span>';

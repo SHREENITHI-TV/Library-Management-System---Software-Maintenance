@@ -52,8 +52,5 @@ $del = $conn->prepare("DELETE FROM activity_logs");
 $del->execute();
 $del->close();
 
-// We *could* try to log this, but logging into the same table we just emptied
-// would just add one row back, which defeats the "clear" idea.
-// So we don't log this particular operation into activity_logs itself.
 
 exit;
